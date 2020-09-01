@@ -1,8 +1,9 @@
-import app from "./app";
+import server from './server';
 
 async function main() {
-  await app.listen(app.get("PORT"));
-  console.log("Server on port", app.get("PORT"));
+    await server.listen(process.env.PORT || 5000, () => {
+        // eslint-disable-next-line no-console
+        console.log(`Running server - http://localhost:${process.env.PORT}`);
+    });
 }
-
 main();
