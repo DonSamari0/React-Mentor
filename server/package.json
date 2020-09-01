@@ -4,9 +4,15 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
+    "pre-commit": "lint-staged",
     "dev": "concurrently \"tsc -w\" \"nodemon dist/index.js\"",
     "build": "tsc",
     "start": "node dist/index.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn pre-commit"
+    }
   },
   "keywords": [],
   "author": "",
