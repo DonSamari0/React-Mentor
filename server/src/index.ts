@@ -1,13 +1,8 @@
-const express = require("express");
-const app = express();
+import app from "./app";
 
-//Settings
-app.set("port", process.env.PORT || 4000);
-//Middlewares
-app.use(express.json());
-//Routes
-app.use("/api/mentor", require("../routes/mentor.routes"));
-//Launcher
-app.listen(app.get("port"), () => {
-  console.log(`Server ready on port ${app.get("port")}`);
-});
+async function main() {
+  await app.listen(app.get("PORT"));
+  console.log("Server on port", app.get("PORT"));
+}
+
+main();
